@@ -1,0 +1,6 @@
+coverage/
+docs/
+dist/
+lib/
+esm/
+tmp/

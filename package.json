@@ -1,12 +1,88 @@
 {
   "name": "blanc-typescript",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.0.0",
+  "private": true,
+  "description": "boilerplate for mocha, nyc using typescript",
+  "keywords": [
+    "boilerplate",
+    "module"
+  ],
+  "homepage": "https://github.com/commenthol/blanc-typescript",
+  "bugs": {
+    "url": "https://github.com/commenthol/blanc-typescript/issues"
   },
-  "keywords": [],
-  "author": "commenthol",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commenthol/blanc-typescript.git"
+  },
+  "license": "MIT",
+  "author": "commenthol <commenthol@gmail.com>",
+  "main": "lib",
+  "module": "esm",
+  "bin": {},
+  "man": [],
+  "directories": {},
+  "scripts": {
+    "all": "npm-run-all clean lint build test",
+    "build": "npm-run-all -p build:esm build:lib",
+    "build:esm": "tsc --build tsconfig.json",
+    "build:lib": "tsc --build tsconfig.lib.json",
+    "clean": "rimraf lib es coverage .nyc_output",
+    "clean:all": "npm run clean && rimraf node_modules",
+    "coverage": "nyc npm test",
+    "lint": "eslint \"**/*.js\" \"**/*.ts\"",
+    "prepublishOnly": "npm run all",
+    "readme": "markedpp --githubid -i README.md -o README.md",
+    "test": "mocha test/**/*.ts"
+  },
+  "mocha": {
+    "checkLeaks": true,
+    "require": "ts-node/register"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "instrument": true,
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "sourceMap": true
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^7.1.0",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.0.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "maintainers": [
+    "commenthol <commenthol@gmail.com>"
+  ]
 }

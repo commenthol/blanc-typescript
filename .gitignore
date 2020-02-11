@@ -1,0 +1,10 @@
+node_modules/
+coverage/
+docs/
+dist/
+lib/
+esm/
+tmp/
+*.log
+*.tgz
+.nyc_output

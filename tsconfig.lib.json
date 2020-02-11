@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "lib/",
+    "rootDir": "src/",
+    "module": "CommonJS",
+    "sourceMap": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/",
+  ]
+}
