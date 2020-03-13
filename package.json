@@ -19,9 +19,11 @@
   "author": "commenthol <commenthol@gmail.com>",
   "main": "lib",
   "module": "esm",
-  "bin": {},
   "man": [],
-  "directories": {},
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
     "all": "npm-run-all clean lint build test",
     "build": "npm-run-all -p build:esm build:lib",

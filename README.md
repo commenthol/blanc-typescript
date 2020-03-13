@@ -11,7 +11,6 @@ This is a boilerplate for a node module using:
 * [eslint][] using [standard][] syntax for code linting,
 * [mocha][] tests,
 * [nyc][] for code coverage,
-* [jsdoc][] for documentation,
 * [rollup][] for bundling (Not yet working)
 
 The files contain examples to show the usage of the different tools in your code.
@@ -66,6 +65,7 @@ See [LICENSE][] for more info.
 * [LICENSE][LICENSE]
 * [mocha][mocha]
 * [nyc][nyc]
+* [rollup][rollup]
 * [standard][standard]
 * [tsconfig][tsconfig]
 * [typescript][typescript]
@@ -81,3 +81,4 @@ See [LICENSE][] for more info.
 [nyc]: https://istanbul.js.org/
 [typescript]: https://www.typescriptlang.org/
 [tsconfig]: https://www.typescriptlang.org/v2/en/tsconfig
+[rollup]: https://rollupjs.org
