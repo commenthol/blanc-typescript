@@ -1,45 +1,49 @@
-import babel from 'rollup-plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import sourcemaps from 'rollup-plugin-sourcemaps'
 import { terser } from 'rollup-plugin-terser'
 
-process.env.BABEL_ENV = 'es5'
+const plugins = (min) => [
+  resolve(),
+  commonjs(),
+  min && terser({
+    warnings: true,
+    module: true
+  }),
+  sourcemaps()
+].filter(Boolean)
 
 export default [
   {
-    input: 'src/index.js',
+    input: 'esm/index.js',
     output: [
       {
         file: './dist/index.es.js',
-        format: 'es'
+        format: 'es',
+        sourcemap: true
       }, {
         file: './dist/index.js',
         format: 'cjs',
-        exports: 'named'
-        // footer: 'module.exports = exports.default;'
-      }],
-    plugins: [
-      babel({
-        exclude: 'node_modules/**'
-      })
-    ]
+        exports: 'named',
+        sourcemap: true
+      }
+    ],
+    plugins: plugins()
   },
   {
-    input: 'src/index.js',
+    input: 'esm/index.js',
     output: [
       {
         file: './dist/index.es.min.js',
-        format: 'es'
+        format: 'es',
+        sourcemap: true
       }, {
         file: './dist/index.min.js',
         format: 'cjs',
-        exports: 'named'
-        // footer: 'module.exports = exports.default;'
+        exports: 'named',
+        sourcemap: true
       }
     ],
-    plugins: [
-      babel({
-        exclude: 'node_modules/**'
-      }),
-      terser()
-    ]
+    plugins: plugins(true)
   }
 ]
